@@ -1,4 +1,5 @@
 #!/bin/bash
+true > dockerinstallLog.txt
 sudo apt update
 sudo apt-get -y upgrade
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
