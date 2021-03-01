@@ -1,0 +1,30 @@
+--- #sonar qube creation
+- hosts: sonarqube-server
+  become: yes
+  tasks:
+  # - name: "Wget the docker script"
+  #   command: wget https://raw.githubusercontent.com/devopsbc01/Scripts/master/dockerubuntu.sh
+  # - name: "Wget the docker compose script"
+  #   command: wget https://raw.githubusercontent.com/devopsbc01/Scripts/master/docker-compose.yml
+  - name: "Transfer the docker installation script"
+    copy: 
+      src: ../config_scripts/dockerubuntu.sh
+      dest: /root/dockerubuntu.sh
+  - name: "Transfer the docker installation script"
+    copy: 
+      src: ../config_scripts/install_dockerCompose.sh
+      dest: /root/install_dockerCompose.sh
+  - name: "Install Docker"
+    shell: bash dockerubuntu.sh >> dockerinstallLog.txt
+  - name: "Add the jenkins user docker"
+    command: sudo usermod -aG docker jenkins
+  - name: "Check the docker service"
+    service: name=docker state=started
+  # - name: "Install Docker compose"
+  #   command: sudo curl -L "https://github.com/docker/compose/releases/1.28.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose ; 
+  # - name: "Running the Docker compose and increasing the virutal memory"
+  #   command: sudo chmod +x /usr/local/bin/docker-compose; docker-compose --version; sudo sysctl -w vm.max_map_count=262144
+  # - name: "Bring up the containers of sonarqube"
+  #   command: docker-compose up -d; docker ps
+  - name: "Install the Docker Compose and Making SonarQube & Postgresql containers to up"
+    command: bash install_dockerCompose.sh
