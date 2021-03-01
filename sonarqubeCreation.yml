@@ -2,10 +2,10 @@
 - hosts: sonarqube-server
   become: yes
   tasks:
-  - name: "Wget the docker script"
-    command: wget https://raw.githubusercontent.com/devopsbc01/Scripts/master/dockerubuntu.sh
-  - name: "Wget the docker compose script"
-    command: wget https://raw.githubusercontent.com/devopsbc01/Scripts/master/docker-compose.yml
+  # - name: "Wget the docker script"
+  #   command: wget https://raw.githubusercontent.com/devopsbc01/Scripts/master/dockerubuntu.sh
+  # - name: "Wget the docker compose script"
+  #   command: wget https://raw.githubusercontent.com/devopsbc01/Scripts/master/docker-compose.yml
   - name: "Install Docker"
     shell: bash dockerubuntu.sh >> dockerinstallLog.txt
   - name: "Check the docker service"
