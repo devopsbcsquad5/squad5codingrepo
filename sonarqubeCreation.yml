@@ -7,7 +7,7 @@
   - name: "Wget the docker compose script"
     command: wget https://raw.githubusercontent.com/devopsbc01/Scripts/master/docker-compose.yml
   - name: "Install Docker"
-    command: bash dockerubuntu.sh 
+    shell: bash dockerubuntu.sh >> dockerinstallLog.txt
   - name: "Check the docker service"
     service: name=jenkins state=started
   # - name: "Add the jenkins user docker"
