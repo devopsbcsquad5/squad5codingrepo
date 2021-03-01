@@ -4,12 +4,12 @@
   tasks:
   - name: "Transfer the docker installation script"
     copy: 
-      src: ../config_scripts/dockerubuntu.sh
-      dest: /root/dockerubuntu.sh
+      src: ../config_scripts/installDocker.sh
+      dest: /root/installDocker.sh
   - name: "Transfer the docker-compose installation script"
     copy: 
-      src: ../config_scripts/install_dockerCompose.sh
-      dest: /root/install_dockerCompose.sh
+      src: ../config_scripts/installDockerCompose.sh
+      dest: /root/installDockerCompose.sh
   - name: "Install Docker"
     shell: bash dockerubuntu.sh >> dockerinstallLog.txt
   - name: "Add the jenkins user docker"
@@ -17,4 +17,4 @@
   - name: "Check the docker service"
     service: name=docker state=started
   - name: "Install the Docker Compose and Making SonarQube & Postgresql containers to up"
-    command: bash install_dockerCompose.sh >> dockerinstallLog.txt
+    command: bash installDockerCompose.sh >> dockerinstallLog.txt
