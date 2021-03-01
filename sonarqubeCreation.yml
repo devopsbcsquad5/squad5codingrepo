@@ -13,6 +13,8 @@
   - name: "Check the docker service"
     service: name=docker state=started
   - name: "Install Docker compose and increase the virutal memory"
-    command: sudo curl -L "https://github.com/docker/compose/releases/1.28.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose ; sudo chmod +x /usr/local/bin/docker-compose; docker-compose --version; sudo sysctl -w vm.max_map_count=262144
+    command: sudo curl -L "https://github.com/docker/compose/releases/1.28.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose ; 
+  - name: "Running the Docker compose and increasing the virutal memory"
+    command: sudo chmod +x /usr/local/bin/docker-compose; docker-compose --version; sudo sysctl -w vm.max_map_count=262144
   - name: "Bring up the containers of sonarqube"
     command: docker-compose up -d; docker ps
