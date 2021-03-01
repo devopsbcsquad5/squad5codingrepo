@@ -8,11 +8,11 @@
   #   command: wget https://raw.githubusercontent.com/devopsbc01/Scripts/master/docker-compose.yml
   - name: "Transfer the docker installation script"
     copy: 
-      src: $HOME/squad5codingrepo/src/config_scripts/dockerubuntu.sh
+      src: ../config_scripts/dockerubuntu.sh
       dest: /root/dockerubuntu.sh
   - name: "Transfer the docker-compose installation script"
     copy: 
-      src: src/config_scripts/install_dockerCompose.sh
+      src: ../config_scripts/install_dockerCompose.sh
       dest: /root/install_dockerCompose.sh
   - name: "Install Docker"
     shell: bash dockerubuntu.sh >> dockerinstallLog.txt
