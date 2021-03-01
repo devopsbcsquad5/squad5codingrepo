@@ -1,4 +1,4 @@
----#sonar qube creation
+--- #sonar qube creation
 - hosts: sonarqube-server
   become: yes
   tasks:
