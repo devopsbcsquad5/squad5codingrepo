@@ -21,5 +21,6 @@
 3. Created an sonar user in sonarqube
 4. Created sonar user token in sonarqube
 5. Made the ansible controller not to prompt for fingerprint (host_key_checking=False)
+6. Added the tag for docker compose to run only dockercompose task alone (ansible-playbook src/playbooks/sonarqubeCreation.yml --tags=dockerCompose)
 
 
