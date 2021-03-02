@@ -17,10 +17,13 @@
 
 #### Mar-1-2021
 1. Created the Ansible scrip to install & configure the sonarqube server
-2. Added the sonarqube plugin in jenkins
+2. Added the sonarqube, maven and pipeline maven integration plugins in jenkins
 3. Created an sonar user in sonarqube
 4. Created sonar user token in sonarqube
 5. Made the ansible controller not to prompt for fingerprint (host_key_checking=False)
 6. Added the tag for docker compose to run only dockercompose task alone (ansible-playbook src/playbooks/sonarqubeCreation.yml --tags=dockerCompose)
+7. Configured jdk, maven & sonarqube in Global tool configuration 
+8. Added the sonarqube stage in pipeline
+
 
 
