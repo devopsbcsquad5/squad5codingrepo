@@ -18,3 +18,4 @@
     service: name=docker state=started
   - name: "Install the Docker Compose and Making SonarQube & Postgresql containers to up"
     command: bash installDockerCompose.sh >> dockerinstallLog.txt
+    tags: dockerCompose

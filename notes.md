@@ -15,3 +15,11 @@
 13. Created the Access Token to integrate Jenkins blue ocean with Github
 14. Created our initial pipeline. 
 
+#### Mar-1-2021
+1. Created the Ansible scrip to install & configure the sonarqube server
+2. Added the sonarqube plugin in jenkins
+3. Created an sonar user in sonarqube
+4. Created sonar user token in sonarqube
+5. Made the ansible controller not to prompt for fingerprint (host_key_checking=False)
+
+
