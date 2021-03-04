@@ -1,21 +1,35 @@
 --- #sonar qube creation
-- hosts: sonarqube-server
+- hosts: "{{ myhostserver }}"
   become: yes
   tasks:
   - name: "Transfer the docker installation script"
     copy: 
       src: ../config_scripts/installDocker.sh
       dest: /root/installDocker.sh
+    tags: dockerInstall
   - name: "Transfer the docker-compose installation script"
     copy: 
       src: ../config_scripts/installDockerCompose.sh
       dest: /root/installDockerCompose.sh
+  - name: "Transfer the sonarqube docker-compose.yml"
+    copy: 
+      src: ../config_scripts/docker-compose-sonarqube.yml
+      dest: /root/docker-compose.yml
+    tags: sonarqubeserver
+  - name: "Transfer the sonarqube docker-compose.yml"
+    copy: 
+      src: ../config_scripts/docker-compose-tomcatpostgresql.yml
+      dest: /root/docker-compose.yml
+    tags: tomcatpostgresql
   - name: "Install Docker"
-    shell: bash dockerubuntu.sh >> dockerinstallLog.txt
+    shell: bash installDocker.sh >> dockerinstallLog.txt
+    tags: dockerInstall
   - name: "Add the jenkins user docker"
     command: sudo usermod -aG docker jenkins
+    tags: dockerInstall
   - name: "Check the docker service"
     service: name=docker state=started
+    tags: dockerInstall
   - name: "Install the Docker Compose and Making SonarQube & Postgresql containers to up"
     command: bash installDockerCompose.sh >> dockerinstallLog.txt
     tags: dockerCompose
