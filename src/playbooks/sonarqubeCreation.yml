@@ -24,6 +24,8 @@
   - name: "Install Docker"
     shell: bash installDocker.sh >> dockerinstallLog.txt
     tags: dockerInstall
+  - name: "Create Jenkins user"
+    shell: useradd -m jenkins
   - name: "Add the jenkins user docker"
     command: sudo usermod -aG docker jenkins
     tags: dockerInstall
