@@ -219,18 +219,18 @@ case "$1" in
 
 		catalina_sh start $SECURITY
 		sleep 5
-        	if start-stop-daemon --test --start --pidfile "$CATALINA_PID" \
-			--user $TOMCAT8_USER --exec "$JAVA_HOME/bin/java" \
-			>/dev/null; then
-			if [ -f "$CATALINA_PID" ]; then
-				rm -f "$CATALINA_PID"
-			fi
-			log_end_msg 1
-		else
-			log_end_msg 0
-		fi
+        # if start-stop-daemon --test --start --pidfile "$CATALINA_PID" \
+		# 	--user $TOMCAT8_USER --exec "$JAVA_HOME/bin/java" \
+		# 	>/dev/null; then
+		# 	if [ -f "$CATALINA_PID" ]; then
+		# 		rm -f "$CATALINA_PID"
+		# 	fi
+		# 	log_end_msg 1
+		# else
+		# 	log_end_msg 0
+		# fi
 	else
-	        log_progress_msg "(already running)"
+	    log_progress_msg "(already running)"
 		log_end_msg 0
 	fi
 	;;
