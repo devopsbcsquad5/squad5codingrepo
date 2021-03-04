@@ -21,6 +21,6 @@ echo '  <user username="tomcat" password="tomcat" roles="admin, manager,admin-sc
 echo "</tomcat-users>"  >> /var/lib/tomcat8/conf/tomcat-users.xml
 #bash to restart tomcat
 #----------------------
-echo "Restart tomcat8..."
-sudo service tomcat8 restart 
-sleep 5
+# echo "Restart tomcat8..."
+# sudo service tomcat8 restart 
+# sleep 5
