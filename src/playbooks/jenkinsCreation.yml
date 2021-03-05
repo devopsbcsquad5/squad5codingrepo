@@ -1,5 +1,5 @@
 ---
-- hosts: build-server
+- hosts: deploy-server
   become: yes
   tasks:
   - name: Update and upgrade apt packages
@@ -23,6 +23,9 @@
   - name: "Pause for 10 seconds"
     pause:
       seconds: 10
+  - name: "Install ansible"
+    command: sudo apt add repository ppa:ansible/ansible; apt-get install -y ansible
+    become: yes
   - name: "Get Jenkins initial Admin Password"
     shell: "cat /var/lib/jenkins/secrets/initialAdminPassword"
     changed_when: false
