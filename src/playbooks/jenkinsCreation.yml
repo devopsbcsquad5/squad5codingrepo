@@ -24,8 +24,7 @@
     pause:
       seconds: 10
   - name: "Install ansible"
-    command: sudo apt-add-repository ppa:ansible/ansible; sudo apt-get install -y ansible
-    become: yes
+    command: sudo apt-add-repository ppa:ansible/ansible; sudo apt-get install -y ansible;
     tags: ansibleInstall
   - name: "Get Jenkins initial Admin Password"
     shell: "cat /var/lib/jenkins/secrets/initialAdminPassword"
