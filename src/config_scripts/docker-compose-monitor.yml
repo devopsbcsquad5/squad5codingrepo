@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  grafana:
+    image: devopsbcsquad5/squad5grafana
+    container_name: squad5grafana
+    ports:
+      - 3000:3000
+    depends_on:
+      - monitordb
+    networks:
+      - monitornet
+    restart: on-failure
+
+  monitordb:
+    image: devopsbcsquad5/squad5prometheus
+    container_name: squad5prometheus
+    ports:
+      - 9090:9090
+    networks:
+      - monitornet
+    restart: on-failure
+
+networks:
+  monitornet:
